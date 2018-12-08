@@ -65,7 +65,7 @@ class Guesty_Client {
         }                                                                                                      
         if ( ($returnCode = (int)curl_getinfo($ch, CURLINFO_HTTP_CODE )) !== 200) {
             curl_close($ch);
-            throw new Exception('HTTP return code ' . $returnCode . ' (' . $this->api_errors[$returnCode] . ')');
+            throw new Exception('HTTP return code ' . $returnCode . ' (' . $this->api_errors[$returnCode] . ') to ' . $this->api_root . $endpoint);
         }
         curl_close($ch);
         return json_decode($result, true);
